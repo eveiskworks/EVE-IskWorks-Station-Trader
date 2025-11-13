@@ -1,19 +1,55 @@
-EVE IskWorks: Market Analysis ToolEVE IskWorks is a command-line utility designed to streamline market analysis for pilots in EVE Online. By leveraging ESI (EVE Swagger Interface) market endpoints, this tool fetches real-time order data and historical price averages across key regions to help you identify profitable trade routes, manufacturing opportunities, and market anomalies.✨ FeaturesFetches current buy/sell orders from major trade hubs (e.g., Jita, Amarr).Calculates profit margins for item movement across defined regions.Provides historical volume and price analysis for long-term tracking.Exports analysis data to a clean CSV or JSON format for external use.🛠️ Installation and SetupPrerequisitesThis application requires Python 3.8+ to run.You will also need to install the necessary Python libraries using pip.1. Clone the RepositoryFirst, clone the project from GitHub to your local machine:git clone [https://github.com/YourUsername/eve-iskworks.git](https://github.com/YourUsername/eve-iskworks.git)
-cd eve-iskworks
-2. Install DependenciesInstall the required packages. We use the standard requests for API calls and pandas for efficient data analysis.pip install -r requirements.txt 
-# If you don't have a requirements.txt, use:
-# pip install requests pandas EsiPy
-3. Configuration (API Keys & IDs)The application requires specific EVE Item IDs (type_id) and Region IDs (region_id) to function.Create a Configuration File: Create a file named config.json in the project root directory.Populate config.json: Add your key settings here. You can look up type_id (Item ID) and region_id on sites like Fuzzworks.{
-    "TARGET_REGIONS": [
-        10000002,   // The Forge (Jita)
-        10000043    // Domain (Amarr)
-    ],
-    "ITEM_IDS_TO_TRACK": [
-        34,     // Tritanium
-        35,     // Pyerite
-        11396   // Warp Scrambler I
-    ],
-    "EXPORT_FORMAT": "csv"
-}
-🚀 How to UseOnce configured, the main script is run via the command line.1. Run the Market FetcherExecute the script to fetch the latest market data based on your config.json:python main_market_analysis.py
-2. View OutputThe analysis will be saved to a folder named output/ in the project root.Console Output: A summary of the top 5 highest profit margin trades will be displayed in your terminal.File Output: The full dataset will be written to a file based on your configuration (e.g., output/market_analysis_2025-11-13.csv).🖼️ Example OutputHere is an example of the kind of data visualization this tool can help generate:📄 LicenseThis project is licensed under the MIT License - see the LICENSE.md file for details.
+# EVE IskWorks Station Trader
+This is a command line initiated gui program for market analysis of all major tradehubs of EVE. Its designed as a free to use service for aspiring Station Traders and Industrialists to fetch real time market data enabling you to find opportunities to buy and sell for a profit. The application showcases volume per day, ROI, potential profit as well as deviation vs Average price along with more.
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/85f7b4cc-2b09-4a4c-a260-ef288bdd80ca" />
+
+# Installation Guide and Prerequisites
+This application requires python 3.6+, although for ideal experience python 3.8+ is recommended, you can run it directly on Command Promt however an IDE makes it easier
+1. Clone the RepositoryClone the project from the official GitHub repository to your local machine.
+git clone [https://github.com/eveiskworks/EVE-IskWorks-Station-Trader.git](https://github.com/eveiskworks/EVE-IskWorks-Station-Trader.git)
+cd EVE-IskWorks-Station-Trader
+2. Install the required Python packages. This project primarily relies on requests for making HTTP calls to the ESI API and pandas for high-performance data manipulation and analysis.
+3. pip install -r requirements.txt 
+# If requirements.txt is missing or does not woek, install the core libraries manually:
+pip install requests pandas numpy
+
+<img width="752" height="85" alt="image" src="https://github.com/user-attachments/assets/399b5f52-0bfe-430c-bdf4-5b9bcdbdf174" />
+
+# Running the Application
+The applciation can be run in two ways directly from your command line or from an IDE, I recommend using an IDE especially if you are unfamiliar with programming.
+Running the Application in an IDE is extremely simple, just open the folder where the program is located and click the run button
+
+<img width="1918" height="746" alt="image" src="https://github.com/user-attachments/assets/248b56eb-42a7-4569-889f-f5a3afd5301d" />
+
+Running this on the command line too isn't very complicated and can be easily done by opening the folder in command prompt using the following commands depending on your OS
+python Eve_IskWorks_StationTrader.py
+python3 Eve_IskWorks_StationTrader.py
+
+<img width="1473" height="28" alt="image" src="https://github.com/user-attachments/assets/174602e8-fcd0-4db5-a7aa-8809e5ef1096" />
+
+# Initial Setup/Repair
+
+<img width="1931" height="1078" alt="image" src="https://github.com/user-attachments/assets/2a725670-033d-44ca-8995-ef7901051653" />
+
+To Initially Setup the application during first time run or After an Update click on Update Static Data (Blue Circled). This will download all item names and their IDs from CCP for further use within the application, there are around 50k+ so it may take a minute. However it does save this file so it will only be needed during the first run (and future updates!)
+
+After this select which tradehub your intrested in we currently support Jita, Amarr, Dodixie and Hek (Red Circled)
+
+<img width="268" height="124" alt="image" src="https://github.com/user-attachments/assets/7a93ef4e-f55b-48f1-84e0-8b93eaea680f" />
+
+Next apply whichever filters you are intrested in, We support a wide range of filters so that you can customize the data to however you want (Green Circled)
+
+Lastly Click on Update Market Data (Pink Circled), this will check if existing data is cached, if not Market Data is downloaded from CCP. This market data is considered valid for 12 hours after which it is discarded and redownloaded. Volume is also downloaded for all items that match filters, since volume download is very slow it is considered valid for 7 days, however the top 100 performers have their volume updated every 12 hours. This is done mainly to reduce loading time and save bandwidth.
+
+If you change any of the Filters click on Apply Filters so as to recalculate the data. (Brown Circle)
+
+<img width="1882" height="88" alt="image" src="https://github.com/user-attachments/assets/7e897e90-d301-4047-80e9-93eb82e240ad" />
+
+Clicking any of the headings (Purple Circled) sorts the data with respect to that heading, first in Decending and the Ascending Order
+
+If you have any questions or doubts feel free to contact me on Discord
+https://discord.gg/vAKd2zQpsU
+
+If you liked this Project consider sending isk to EVE IskWorks to fund futre Development
+
+This project is licensed under the Apache License. See the LICENSE.md file for full details.
