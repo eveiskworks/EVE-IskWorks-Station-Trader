@@ -46,7 +46,7 @@ If you change any of the Filters click on Apply Filters so as to recalculate the
 <img width="1882" height="88" alt="image" src="https://github.com/user-attachments/assets/7e897e90-d301-4047-80e9-93eb82e240ad" />
 
 Clicking any of the headings (Purple Circled) sorts the data with respect to that heading, first in Decending and the Ascending Order
-# Planned Futre Updates
+# Planned Future Updates
 1) Adding the total number of buy and sell orders completed
 2) Adding Variable time to the avg price so you can better see your buying position
 3) Logging your account so as to track your buy and sell orders and compute profit from Station Trading
@@ -55,6 +55,6 @@ Clicking any of the headings (Purple Circled) sorts the data with respect to tha
 If you have any questions or doubts feel free to contact me on Discord
 https://discord.gg/vAKd2zQpsU
 
-If you liked this Project consider sending isk to EVE IskWorks to fund futre Development
+If you liked this Project consider sending isk to EVE IskWorks to fund future Development
 
 This project is licensed under the Apache License. See the LICENSE.md file for full details.
