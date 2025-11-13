@@ -735,13 +735,11 @@ def create_gui():
     global buy_brokrage_entry, sell_brokrage_entry, sales_tax_entry, scc_surcharge_entry, min_vol_entry, min_profit_entry, max_cost_entry, max_profit_entry, max_roi_entry, search_entry
     global station_var, station_combo
 
-    # Initialize the modern Bootstrap window
     root = ttk.Window(themename="darkly")
     root.state('zoomed')
     root.resizable(True, True)
     root.grid_columnconfigure(0, weight=1)
     root.grid_rowconfigure(0, weight=1)
-    # Set the initial title here
     root.title(f"EVE IskWorks ({current_station_name})") 
 
 
@@ -874,6 +872,12 @@ def create_gui():
 
     page_label = ttk.Label(pagination_frame, text=f"Page 1 of 1 ({len(sorted_df):,} Total Items)", bootstyle=LIGHT)
     page_label.grid(row=0, column=0, sticky='w')
+
+    donation_frame = ttk.Frame(main_frame, padding=(5, 5))
+    donation_frame.grid(row=5, column=0, columnspan=2, sticky='ew')
+    donation_frame.grid_columnconfigure(0, weight=1)
+    donation_label = ttk.Label(donation_frame, text="Consider donating to EVE IskWorks", bootstyle=INFO)
+    donation_label.grid(row=0, column=0, sticky='w')
 
     # Initial setup call
     select_station()
